@@ -1,0 +1,855 @@
+WindowManager:
+    FirstWindow:# sigin window
+    SecondWindow: #info window
+    ThirdWindow:  #loan account
+    FourthWindow:  #saving account
+    SixthWindow:  #checking account
+    SeventhWindow:#deposit
+    EightWindow:#withdraw
+    NinethWindow:#balance enqiury
+    TenthWindow:#loan
+    EleventhWindow:#apply loan
+    TwelveWindow:#details of loan
+    ThirteenWindow:#return loan
+    FourteenWindow:# admin interface
+    FifteenWindow:# edit
+    SixteenWindow: # all customer details
+    SeventeenWindow: #input for customer details
+    EighteenWindow: #customers details
+<FirstWindow>:
+    acc:acc
+    passw:passw
+    nameee:nameee
+    name: 'onetime'
+    FloatLayout:
+        canvas:
+            Rectangle:
+                source:'PICS\\bankkkkk.jpg'
+                pos: self.pos
+                size: self.size
+        FloatLayout:
+
+            Label:
+                text: 'ID:'
+                font_size: 30
+                color:0,0,0,1
+                size_hint:(0.51,0.3)
+                pos_hint:{'x':0.08,'y':0.6}
+
+            TextInput:
+                id:nameee
+                multiline: False
+                size_hint:(0.3,0.07)
+                pos_hint:{'x':0.5,'y':0.72}
+            Label:
+                text: 'Password:'
+                font_size: 30
+                color:0,0,0,1
+                size_hint:(0.5,0.3)
+                pos_hint:{'x':0.11,'y':0.5}
+            TextInput:
+                id:passw
+                multiline: False
+                size_hint:(0.3,0.07)
+                pos_hint:{'x':0.5,'y':0.62}
+            Label:
+                text:"If you don't have any account ,Kindly sign up"
+                bold:5
+                font_size:25
+                color:0,0,0,1
+                size_hint:(0.5,0.3)
+                pos_hint:{'x':0.28,'y':0.3}
+            Label:
+                text: 'Account type:'
+                font_size: 30
+                color:0,0,0,1
+                size_hint:(0.5,0.3)
+                pos_hint:{'x':0.13,'y':0.4}
+            TextInput:
+                id:acc
+                multiline: False
+                size_hint:(0.3,0.07)
+                pos_hint:{'x':0.5,'y':0.52}
+            Button:
+
+                size_hint:(0.3,0.1)
+                pos_hint:{'x':0.37,'y':0.28}
+                background_color:0.5,0.5,1,1
+                text: 'Sign in'
+                on_press:
+                    root.pressed()
+                    #app.root.current = 'thirdtime'
+            Button:
+                size_hint:(0.3,0.1)
+                pos_hint:{'x':0.37,'y':0.155}
+                background_color:0.5,0.5,1,1
+                text: 'signup'
+                on_press:
+
+                    app.root.current = 'twotime'
+
+<SecondWindow>:
+    name: 'twotime'
+    idd: inputid
+    namee: inputname
+    fathername: inputfathername
+    conc: inputcontact
+    email: inputemail
+    dob: inputbirthday
+    acc_type: acctype
+    dep: depamount
+    password: password
+
+    GridLayout:
+        canvas:
+            Rectangle:
+                source:'PICS\\bankkkkk.jpg'
+                pos: self.pos
+                size: self.size
+
+        cols:1
+        FloatLayout:
+            Label:
+                text: 'Enter your ID:'
+                font_size: 25
+                color:0,0,0,1
+                size_hint:(None,None)
+                pos_hint:{'x':0.27,'y':0.36}
+            TextInput:
+                id: inputid
+                multiline: False
+                size_hint:(None,None)
+                size:350,30
+                pos_hint:{'x':0.43,'y':0.45}
+            Label:
+                text: 'Enter your name:'
+                font_size: 25
+                color:0,0,0,1
+                size_hint:(None,None)
+                pos_hint:{'x':0.25,'y':0.75}
+            TextInput:
+                id: inputname
+                multiline: False
+                size_hint:(None,None)
+                size:350,30
+                pos_hint:{'x':0.43,'y':0.85}
+            Label:
+                text: 'Enter your Father name:'
+                font_size: 25
+                color:0,0,0,1
+                size_hint:(None,None)
+                pos_hint:{'x':0.21,'y':0.65}
+            TextInput:
+                id: inputfathername
+                multiline: False
+                size_hint:(None,None)
+                size:350,30
+                pos_hint:{'x':0.43,'y':0.75}
+
+
+
+            Label:
+                text: 'Enter your contact number :'
+                font_size: 25
+                color:0,0,0,1
+                size_hint:(None,None)
+                pos_hint:{'x':0.19,'y':0.56}
+            TextInput:
+                id: inputcontact
+                multiline: False
+                size_hint:(None,None)
+                size:350,30
+                pos_hint:{'x':0.43,'y':0.65}
+
+
+            Label:
+                text: 'Enter your Email:'
+                font_size: 25
+                color:0,0,0,1
+                size_hint:(None,None)
+                pos_hint:{'x':0.25,'y':0.46}
+            TextInput:
+                id: inputemail
+                multiline: False
+                size_hint:(None,None)
+                size:350,30
+                pos_hint:{'x':0.43,'y':0.55}
+
+            Label:
+                text:'Enter your Date of birth:'
+                font_size:25
+                color:0,0,0,1
+                size_hint:(None,None)
+                pos_hint:{'x':0.21,'y':0.26}
+            TextInput:
+                id:inputbirthday
+                multiline:False
+                size_hint:(None,None)
+                size:350,30
+                pos_hint:{'x':0.43,'y':0.36}
+            Label:
+                text:'Enter your Account type:'
+                font_size:25
+                color:0,0,0,1
+                size_hint:(None,None)
+                pos_hint:{'x':0.21,'y':0.17}
+            TextInput:
+                id:acctype
+                multiline:False
+                size_hint:(None,None)
+                size:350,30
+                pos_hint:{'x':0.43,'y':0.26}
+                on_text_validate: root.get_account(self)
+
+            Label:
+                text:'Enter Deposit Amount:'
+                font_size:25
+                color:0,0,0,1
+                size_hint:(None,None)
+                pos_hint:{'x':0.21,'y':0.07}
+            TextInput:
+                id:depamount
+                multiline:False
+                size_hint:(None,None)
+                size:350,30
+                pos_hint:{'x':0.43,'y':0.16}
+            Label:
+                text:'Enter your Password:'
+                font_size:25
+                color:0,0,0,1
+                size_hint:(None,None)
+                pos_hint:{'x':0.22,'center_y':0.11}
+            TextInput:
+                id:password
+                multiline:False
+                size_hint:(None,None)
+                size:350,30
+                pos_hint:{'x':0.43,'y':0.06}
+        FloatLayout:
+            Button:
+                size_hint:(None,None)
+                size:190,70
+
+                background_color:0.5,0.5,1,1
+                pos_hint:{'x':0.4,'y':0.5}
+
+                text: "Submit"
+                on_press:
+                    app.root.transition.direction='right'
+                    root.create_cust()
+
+            Button:
+                text:'BACK'
+                background_color:0,1,1,1
+                size_hint:(0.15,0.15)
+                pos_hint:{"right":0.15,"Bottom":1}
+                on_press:
+                    app.root.current='onetime'
+
+
+<ThirdWindow>:
+
+    name: 'thirdtime'
+    FloatLayout:
+        canvas:
+            Rectangle:
+                source:'PICS\\loan-account.jpg'
+                pos: self.pos
+                size: self.size
+
+        Label:
+            text:'WELCOME'
+            size_hint:(0.4,0.6)
+            font_size:30
+            color:0,0,0,1
+            bold:20
+            pos_hint:{'x':0.3,'y':0.6}
+        Label:
+            text:'You are in Loan Account'
+            size_hint:(0.4,0.4)
+            font_size:30
+            bold:20
+            color:0,0,0,1
+            pos_hint:{'x':0.3,'y':0.6}
+
+
+        Button:
+            background_normal:'PICS\\deposit-image.jpg'
+            size_hint:(0.25,0.23)
+            pos_hint:{'x':0.17,'y':0.5}
+            on_press:
+                app.root.current = 'seventime'
+
+        Button:
+            background_normal:'PICS\\balance.png'
+            size_hint:(0.23,0.23)
+            pos_hint:{'x':0.35,'y':0.2}
+            on_press:
+                app.root.current = 'ninetime'
+        Button:
+            background_normal:'PICS\\loan.jpg'
+            size_hint:(0.23,0.23)
+            pos_hint:{'x':0.56,'y':0.5}
+            on_press:
+                app.root.current = 'tentime'
+        Button:
+            text:'Edit'
+            background_color:1,1,0,1
+            size_hint:(0.15,0.07)
+            pos_hint:{"right":0.15,"top":0.937}
+            on_press:
+                app.root.current='n15'
+
+        Button:
+            text:'Home'
+            background_color:1,1,0,1
+            size_hint:(0.15,0.07)
+            pos_hint:{"right":0.15,"top":1}
+            on_press:
+                app.root.current='onetime'
+<FourthWindow>:
+    name:'fourtime'
+    FloatLayout:
+
+        canvas:
+            Rectangle:
+                source:'PICS\\credit-account.jpg'
+                pos:self.pos
+                size:self.size
+
+        Label:
+            text:'WELCOME'
+            size_hint:(0.4,0.6)
+            font_size:30
+            color:0,0,0,1
+            bold:20
+            pos_hint:{'x':0.3,'y':0.6}
+        Label:
+            text:'You are in Saving Account'
+            size_hint:(0.4,0.4)
+            font_size:30
+            bold:20
+            color:0,0,0,1
+            pos_hint:{'x':0.3,'y':0.6}
+        Button:
+            background_normal:'PICS\\deposit-image.jpg'
+            size_hint:(0.23,0.23)
+            pos_hint:{'x':0.17,'y':0.5}
+            on_press:
+                app.root.current='seventime'
+        Button:
+            background_normal:'PICS\\withdraw.jpg'
+            size_hint:(0.23,0.23)
+            pos_hint:{'x':0.56,'y':0.5}
+            on_press:
+                app.root.current='eighttime'
+        Button:
+            background_normal:'PICS\\balance.png'
+            size_hint:(0.23,0.23)
+            pos_hint:{'x':0.36,'y':0.2}
+            on_press:
+                app.root.current='ninetime'
+
+        Button:
+            text:'Edit'
+            background_color:1,1,0,1
+            size_hint:(0.15,0.07)
+            pos_hint:{"right":0.15,"top":0.937}
+            on_press:
+                app.root.current='n15'
+        Button:
+            text:'Home'
+            background_color:1,1,0,1
+            size_hint:(0.15,0.07)
+            pos_hint:{"right":0.15,"top":1}
+            on_press:
+                app.root.current='onetime'
+
+<SixthWindow>:
+    name:'sixtime'
+    FloatLayout:
+
+        canvas:
+            Rectangle:
+
+                source:'PICS\\creditlimit-background.jpg'
+                pos:self.pos
+                size:self.size
+        Label:
+            text:'WELCOME'
+            size_hint:(0.4,0.6)
+            font_size:30
+            color:0,0,0,1
+            bold:20
+            pos_hint:{'x':0.3,'y':0.6}
+        Label:
+            text:'You are in checking Account'
+            size_hint:(0.4,0.4)
+            font_size:30
+            bold:20
+            color:0,0,0,1
+            pos_hint:{'x':0.3,'y':0.6}
+        Button:
+            background_normal:'PICS\\deposit-image.jpg'
+            size_hint:(0.23,0.23)
+            pos_hint:{'x':0.17,'y':0.5}
+            on_press:
+                app.root.current='seventime'
+        Button:
+            background_normal:'PICS\\withdraw.jpg'
+            size_hint:(0.23,0.23)
+            pos_hint:{'x':0.56,'y':0.5}
+            on_press:
+                app.root.current='eighttime'
+        Button:
+            background_normal:'PICS\\balance.png'
+            size_hint:(0.23,0.23)
+            pos_hint:{'x':0.36,'y':0.2}
+            on_press:
+                app.root.current='ninetime'
+
+        Button:
+            text:'Edit'
+            background_color:1,1,0,1
+            size_hint:(0.15,0.07)
+            pos_hint:{"right":0.15,"top":0.937}
+            on_press:
+                app.root.current='n15'
+
+        Button:
+            text:'Home'
+            background_color:1,1,0,1
+            size_hint:(0.15,0.07)
+            pos_hint:{"right":0.15,"top":1}
+            on_press:
+                app.root.current='onetime'
+<SeventhWindow>:
+    name:'seventime'
+    deposit_amount:deposit
+    FloatLayout:
+
+        canvas:
+            Rectangle:
+                source:'PICS\\background.jpg'
+                pos:self.pos
+                size:self.size
+
+
+        Label:
+            text:'Enter Amount for deposit:'
+            font_size:30
+            size_hint:(0.3,0.3)
+            pos_hint:{'x':0.35,'y':0.55}
+            bold:10
+            color:0,0,0,1
+
+        TextInput:
+            id:deposit
+            multiline:False
+            size_hint:(0.5,0.1)
+            pos_hint:{'x':0.25,'y':0.5}
+        Button:
+            text:'DONE'
+            background_color:0,0,0,1
+            size_hint:(0.2,0.1)
+            pos_hint:{'x':0.4,'y':0.3}
+            on_press:
+                root.btn()
+        Button:
+            text:'Home'
+            background_color:1,1,0,1
+            size_hint:(0.15,0.07)
+            pos_hint:{"right":0.15,"top":1}
+            on_press:
+                root.change()
+
+
+<EightWindow>:
+    withdraw:withdraw
+    name:'eighttime'
+    FloatLayout:
+        canvas:
+            Rectangle:
+                source:'PICS\\withdraw-background.jpg'
+                pos:self.pos
+                size:self.size
+        Label:
+            text:'Enter Amount for Withdraw:'
+            font_size:40
+            size_hint:(0.3,0.3)
+            pos_hint:{'x':0.35,'y':0.55}
+            bold:20
+
+
+        TextInput:
+            id:withdraw
+            multiline:False
+            size_hint:(0.5,0.1)
+            pos_hint:{'x':0.25,'y':0.5}
+        Button:
+            text:'DONE'
+            background_color:0,0,0,1
+            size_hint:(0.2,0.1)
+            pos_hint:{'x':0.4,'y':0.3}
+            on_press:
+                root.btn()
+        Button:
+            text:'Home'
+            background_color:1,1,0,1
+            size_hint:(0.15,0.07)
+            pos_hint:{"right":0.15,"top":1}
+            on_press:
+                root.change()
+
+<NinethWindow>:
+    name:'ninetime'
+    on_enter:
+        root.print_balance()
+    #ScrollView:
+    FloatLayout:
+        canvas:
+            Rectangle:
+                pos:self.pos
+                size:self.size
+
+
+
+
+<TenthWindow>:
+    name:'tentime'
+    #on_enter:
+        #root.hyper()
+    FloatLayout:
+
+        canvas:
+            Rectangle:
+                source:'PICS\\loan-background.png'
+                pos:self.pos
+                size:self.size
+        Button:
+            text:'Loan Payment'
+            font_size:30
+            background_color:'blue'
+            size_hint:(0.4,0.1)
+            pos_hint:{'center_x':0.5,'y':0.81}
+            on_press:
+                app.root.current='n13'
+
+        Button:
+            text:'Details'
+            font_size:30
+            background_color:'blue'
+            size_hint:(0.4,0.1)
+            pos_hint:{'center_x':0.5,'y':0.72}
+            on_press:
+                app.root.current='twelvetime'
+        Button:
+            text:'Apply Loan!'
+            background_color:'blue'
+            font_size:30
+            size_hint:(0.4,0.1)
+            pos_hint:{'center_x':0.5,'y':0.9}
+            on_press:
+                app.root.current='eleventime'
+        Button:
+            text:'Home'
+            background_color:1,1,0,1
+            size_hint:(0.15,0.07)
+            pos_hint:{"right":0.15,"top":1}
+            on_press:
+                app.root.current='thirdtime'
+<EleventhWindow>:
+    name:'eleventime'
+    loan_amount:loan_amount
+    FloatLayout:
+        canvas:
+            Rectangle:
+                source:'PICS\\loan-background.png'
+                pos:self.pos
+                size:self.size
+        Label:
+            text:'Enter Amount for Loan:'
+            font_size:40
+            size_hint:(0.3,0.3)
+            pos_hint:{'x':0.35,'y':0.55}
+            bold:20
+
+
+        TextInput:
+            id:loan_amount
+            multiline:False
+            size_hint:(0.5,0.1)
+            pos_hint:{'x':0.25,'y':0.5}
+        Button:
+            text:'DONE'
+            background_color:0,0,0,1
+            size_hint:(0.2,0.1)
+            pos_hint:{'x':0.4,'y':0.3}
+            on_press:
+                root.btn()
+        Button:
+            text:'Home'
+            background_color:1,1,0,1
+            size_hint:(0.15,0.07)
+            pos_hint:{"right":0.15,"top":1}
+            on_press:
+                app.root.current='thirdtime'
+<TwelveWindow>:
+    on_enter:
+        root.details()
+    name:'twelvetime'
+    FloatLayout:
+        canvas:
+            Rectangle:
+                source:
+                pos:self.pos
+                size:self.size
+
+<ThirteenWindow>:
+    loan_amount:loan_amount
+    name:'n13'
+    FloatLayout:
+        canvas:
+            Rectangle:
+                source:'PICS\\loan-background.png'
+                pos:self.pos
+                size:self.size
+        Button:
+            text:'Home'
+            background_color:1,1,0,1
+            size_hint:(0.15,0.07)
+            pos_hint:{"right":0.15,"top":1}
+            on_press:
+                app.root.current='thirdtime'
+        Label:
+            text:'Enter Amount for Loan Payment:'
+            font_size:40
+            size_hint:(0.3,0.3)
+            pos_hint:{'x':0.35,'y':0.55}
+            bold:20
+
+
+        TextInput:
+            id:loan_amount
+            multiline:False
+            size_hint:(0.5,0.1)
+            pos_hint:{'x':0.25,'y':0.5}
+        Button:
+            text:'DONE'
+            background_color:0,0,0,1
+            size_hint:(0.2,0.1)
+            pos_hint:{'x':0.4,'y':0.3}
+            on_press:
+                root.btn()
+        Button:
+            text:'Home'
+            background_color:1,1,0,1
+            size_hint:(0.15,0.07)
+            pos_hint:{"right":0.15,"top":1}
+            on_press:
+                app.root.current='thirdtime'
+
+<FourteenWindow>:
+    name:'n14'
+    FloatLayout:
+        canvas:
+            Rectangle:
+                source:'PICS\\bankkkkk.jpg'
+                pos:self.pos
+                size:self.size
+        Label:
+            text:'You are in Admin Account'
+            font_size:40
+            bold:5
+            color:'blue'
+            size_hint:(0.5,0.4)
+            pos_hint:{'x':0.28,'y':0.6}
+        Button:
+            text:'Customers Balance'
+            font_size:20
+            background_color:'#6699FF'
+            size_hint:(0.3,0.1)
+            pos_hint:{'x':0.35,'y':0.5}
+            on_press:
+                app.root.current='n16'
+
+        Button:
+            text:'Cutomer details'
+            font_size:20
+            size_hint:(0.3,0.1)
+            pos_hint:{'x':0.35,'y':0.4}
+            background_color:'#6699FF'
+            on_press:
+                app.root.current='n17'
+        Button:
+            text:'BACK'
+            background_color:0,1,1,1
+            size_hint:(0.15,0.15)
+            pos_hint:{"right":0.15,"Bottom":1}
+            on_press:
+                app.root.current='onetime'
+
+<FifteenWindow>:
+    name:'n15'
+
+    FloatLayout:
+        canvas:
+            Rectangle:
+
+                pos:self.pos
+                size:self.size
+        Button:
+            name:'idc'
+            text:'Change ID'
+            font_size:20
+            color:'blue'
+            background_color:0,0,0,0
+            size_hint:(0.2,0.07)
+            pos_hint:{'right':0.19,'y':0.9}
+            on_press:
+                root.change(self)
+        Button:
+            name:'email'
+            text:'Change Email'
+            font_size:20
+            color:'blue'
+            background_color:0,0,0,0
+            size_hint:(0.2,0.07)
+            pos_hint:{'right':0.2,'y':0.83}
+            on_press:
+                root.change(self)
+        Button:
+            name:'namee'
+            text:'Change Name'
+            font_size:20
+            color:'blue'
+            background_color:0,0,0,0
+            size_hint:(0.2,0.07)
+            pos_hint:{'right':0.2,'y':0.76}
+            on_press:
+                root.change(self)
+        Button:
+            name:'number'
+            text:'Change phone number'
+            font_size:20
+            color:'blue'
+            background_color:0,0,0,0
+            size_hint:(0.21,0.07)
+            pos_hint:{'right':0.227,'y':0.55}
+            on_press:
+                root.change(self)
+        Button:
+            name:'father_name'
+            text:'Change Father Name'
+            font_size:20
+            color:'blue'
+            background_color:0,0,0,0
+            size_hint:(0.2,0.07)
+            pos_hint:{'right':0.22,'y':0.62}
+            on_press:
+                root.change(self)
+        Button:
+            name:'pas'
+            text:'Change Password'
+            font_size:20
+            color:'blue'
+            background_color:0,0,0,0
+            size_hint:(0.2,0.07)
+            pos_hint:{'right':0.21,'y':0.69}
+            on_press:
+                root.change(self)
+        Button:
+            name:'dob'
+            text:'Change Date of birthday'
+            font_size:20
+            color:'blue'
+            background_color:0,0,0,0
+            size_hint:(0.24,0.07)
+            pos_hint:{'right':0.25,'y':0.48}
+            on_press:
+                root.change(self)
+        Button:
+
+            text:'Delete Account'
+            font_size:20
+            color:'green'
+            background_color:0,0,0,0
+            size_hint:(0.24,0.07)
+            pos_hint:{'right':0.23,'y':0.4}
+            on_press:
+                root.remove()
+        Button:
+            text:'BACK'
+            background_color:1,1,0,1
+            size_hint:(0.15,0.07)
+            pos_hint:{"right":0.15,"bottom":1}
+            on_press:
+                root.channge()
+<SixteenWindow>:
+    name:'n16'
+    on_enter:root.print_details()
+    #ScrollView:
+    FloatLayout:
+        canvas:
+            Rectangle:
+                pos:self.pos
+                size:self.size
+
+<SeventeenWindow>:
+    name: 'n17'
+    nameee: nameee
+    acc: acc
+    FloatLayout:
+        canvas:
+            Rectangle:
+                source:'PICS\\bankkkkk.jpg'
+                pos: self.pos
+                size: self.size
+        Label:
+            text: 'Enter User ID'
+            font_size: 30
+            color: 'black'
+            size_hint: (0.5, 0.4)
+            pos_hint: {'x': 0.1, 'y': 0.55}
+        TextInput:
+            id: nameee
+            multiline: False
+            size_hint: (0.3, 0.07)
+            pos_hint: {'x': 0.5, 'y': 0.7}
+        Label:
+            text: 'Enter User Account type'
+            font_size: 30
+
+            color: 'black'
+            size_hint: (0.5, 0.4)
+            pos_hint: {'x': 0.05, 'y': 0.45}
+        TextInput:
+            id: acc
+            multiline: False
+            size_hint: (0.3, 0.07)
+            pos_hint: {'x': 0.5, 'y': 0.6}
+        Button:
+            text: 'Enter'
+            background_color: 0, 1, 1, 1
+            size_hint: (0.15, 0.09)
+            pos_hint: {'x':0.4,'y':0.3}
+            on_press:
+                root.customer_details()
+        Button:
+            text:'BACK'
+            background_color:1,1,0,1
+            size_hint:(0.15,0.07)
+            pos_hint:{"right":0.15,"bottom":1}
+            on_press:
+                app.root.current='n14'
+
+<EighteenWindow>:
+    name:'n18'
+    on_enter:
+        root.details()
+    FloatLayout:
+        canvas:
+            Rectangle:
+                pos:self.pos
+                size:self.size
+
