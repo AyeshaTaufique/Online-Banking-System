@@ -1,0 +1,42 @@
+Necessary requirement for running:
+    1.install kivy library
+ABOUT FILES:
+1.main.py is the main file to be executed.
+1.On registration of every user there will create a file in respective account folder
+with name of 'user_id'.
+2.This file contains the details of user with all transactions in it.
+3.Every folder will contain a file name 'details' in which there would name,id and balance of all
+users of that account
+4.Customer info file will contain the name,id and account type of all users present in Online banking
+system
+5.when a user of loan account applies for loan at that time there will create another file with
+conventions 'Loan-user_id'in which there would be details of loan taken and recived.
+INSTRUCTIONS TO BE KNOWN BEFORE EXECUTION:
+        You have to run main.py file. First you have to click on sign up and then enter all entries.
+Note:
+     Do remember your ID,Password and account type.
+     ID serves as primary key.
+     Account type should be typed as 'loan account' or 'checking account' or'saving account' respectively.
+
+This Banking system contains three types of Accounts:
+    1.loan acccount
+    2.checking account
+    3.saving account
+Once you are done with your account entries click on submit.If first Window occcurs that means your
+account is registered and you are ready to sign in.
+Example:
+   ID: 123
+   Password: ___
+   Account type: loan account
+you would be  entered into respective account then u can perform tasks as per your requirment
+you can perform:
+    Deposit
+    Withdrawals
+    Check bank balance
+In Edit You can change your details enter.You can either delete your account
+For Admin Interface:
+   ID: Ayesha
+   password:123
+   Account type:admin
+1.From Admin Interface you can get balances of All Users present.
+You can either get details of particular User by entering his ID and Account type.
