@@ -292,7 +292,7 @@ class FirstWindow(Screen):
             n.update({str(i[0])+str(i[1]):i[2]})
 
 
-        if self.nameee.text =='shahzad' and self.passw.text == '123' and self.acc.text=='admin':
+        if self.nameee.text =='Ayesha' and self.passw.text == '123' and self.acc.text=='admin':
                  self.manager.current='n14'
                  self.nameee.text=''
                  self.acc.text=''
